@@ -1,7 +1,6 @@
 package com.example.wfh.controller;
 
 import com.example.wfh.model.WfhRequest;
-import com.example.wfh.repository.WfhRepository;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,13 +10,8 @@ import java.util.UUID;
 
 @RestController
 public class WfhController {
-    private final WfhRepository repository;
 
-    public WfhController(WfhRepository repository) {
-        this.repository = repository;
-    }
-
-    private HashMap<String, WfhRequest> map = new HashMap<>() {
+    private final HashMap<String, WfhRequest> map = new HashMap<>() {
         {
             put("1", new WfhRequest("1", "15-Nov-2023", "15-Nov-2023", "09:00", "18:15"));
             put("2", new WfhRequest("2", "16-Nov-2023", "16-Nov-2023", "08:00", "15:15"));
