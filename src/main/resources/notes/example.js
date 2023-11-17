@@ -1,31 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>WFH</title>
-</head>
-<body>
-<form id="formElem">
-    <table>
-        <tr>
-            <td><label>Start Date</label></td>
-            <td><input type="text"/></td>
-            <td><label>Start Date</label></td>
-            <td><input type="text"/></td>
-        </tr>
-        <tr>
-            <td><label>Start Date</label></td>
-            <td><input type="text"/></td>
-            <td><label>Start Date</label></td>
-            <td><input type="text"/></td>
-        </tr>
-        <tr>
-            <td><button type="submit">Submit</button></td>
-        </tr>
-    </table>
-</form>
-</body>
-<script>
     submit.onclick = async (e) => {
         let response = await fetch('http://localhost:8482/encode', {
                 method: 'GET',
@@ -64,5 +36,3 @@
         let text = await response.text(); // read response body as text
         document.querySelector("#decoded").innerHTML = text;
     };
-</script>
-</html>

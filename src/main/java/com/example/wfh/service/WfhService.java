@@ -39,5 +39,8 @@ public class WfhService {
     public Iterable<WfhRequest> getAll() {
         return wfhRepository.findAll();
     }
-    
+
+    public void remove(Integer id) {
+        wfhRepository.deleteById(id);
+    }
 }

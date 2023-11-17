@@ -12,11 +12,11 @@ public class WfhRequest {
     @Id
     private Integer id;
     @NotEmpty
-    private String startDate;
+    private String fromDate;
     @NotEmpty
-    private String endDate;
+    private String toDate;
     @NotEmpty
-    private String startTime;
+    private String fromTime;
     @NotEmpty
-    private String endTime;
+    private String toTime;
 }
