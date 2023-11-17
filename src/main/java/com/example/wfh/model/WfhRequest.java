@@ -1,10 +1,13 @@
 package com.example.wfh.model;
 
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("WFH_REQUEST")
 public class WfhRequest {
-    @NotEmpty
-    private String requestId;
+    @Id
+    private Integer id;
     @NotEmpty
     private String startDate;
     @NotEmpty
@@ -14,23 +17,12 @@ public class WfhRequest {
     @NotEmpty
     private String endTime;
 
-    public WfhRequest() {
+    public Integer getId() {
+        return id;
     }
 
-    public WfhRequest(String requestId, String startDate, String endDate, String startTime, String endTime) {
-        this.requestId = requestId;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.startTime = startTime;
-        this.endTime = endTime;
-    }
-
-    public String getRequestId() {
-        return requestId;
-    }
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getStartDate() {

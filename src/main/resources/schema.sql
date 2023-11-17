@@ -1,7 +1,7 @@
-CREATE TABLE WFH_REQUEST (
-    REQUEST_ID VARCHAR(255),
-    START_DATE VARCHAR(255),
-    END_DATE VARCHAR(255),
-    START_TIME VARCHAR(255),
-    END_TIME VARCHAR(255)
+create table if not exists wfh_request (
+    id bigint auto_increment primary key,
+    start_date varchar(255),
+    end_date varchar(255),
+    start_time varchar(255),
+    end_time varchar(255)
 );

@@ -1,34 +1,47 @@
 package com.example.wfh.controller;
 
 import com.example.wfh.model.WfhRequest;
+import com.example.wfh.service.WfhService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.UUID;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 public class WfhController {
 
-    private final HashMap<String, WfhRequest> map = new HashMap<>() {
-        {
-            put("1", new WfhRequest("1", "15-Nov-2023", "15-Nov-2023", "09:00", "18:15"));
-            put("2", new WfhRequest("2", "16-Nov-2023", "16-Nov-2023", "08:00", "15:15"));
-        }
-    };
+    private final WfhService wfhService;
 
-    @GetMapping(path = "/all_requests")
-    private Collection<WfhRequest> getRequests() {
-        return map.values();
+    public WfhController(WfhService wfhService) {
+        this.wfhService = wfhService;
     }
 
-    //@RequestMapping(path = "/add_request", method = {RequestMethod.POST, RequestMethod.GET})
+    @GetMapping(path = "/all_requests")
+    public Iterable<WfhRequest> getRequests() {
+        return wfhService.getAll();
+    }
+
+    @GetMapping(path = "/request/{id}")
+    public WfhRequest getRequest(@PathVariable Integer id) {
+        WfhRequest wfhRequest = wfhService.get(id);
+        if (wfhRequest == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        return wfhRequest;
+    }
+
     @PostMapping(path = "/add_request")
     @ResponseBody
-    public WfhRequest addRequest(@RequestBody @Valid WfhRequest request) {
-        request.setRequestId(UUID.randomUUID().toString());
-        map.put(request.getRequestId(), request);
-        return request;
+    public WfhRequest addRequest(@RequestBody @Valid WfhRequest wfhRequest) {
+        // TODO: Implement below logic
+        // initialize start-date, end-date, start-time, end-time
+        // if (start-date == end-date) and (start-time < end-time):
+        //     check if the wfhdb has the start-date
+        //     if (start-date in wfhdb already):
+        //         throw new ResponseStatusException(HttpStatus.CONFLICT);
+        //     else:
+        //         return wfhService.put(wfhRequest);
+        // else:
+        //     throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        // end-if
+        return wfhService.put(wfhRequest);
     }
 }
