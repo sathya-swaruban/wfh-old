@@ -4,6 +4,7 @@ import com.example.wfh.model.WfhRequest;
 import com.example.wfh.service.WfhService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDate;
 
 @RestController
 public class WfhController {
@@ -27,6 +28,11 @@ public class WfhController {
     @GetMapping(path = "/delete/{id}")
     public void deleteRequest(@PathVariable Integer id) {
         wfhService.remove(id);
+    }
+
+    @GetMapping(path = "/current_date")
+    public LocalDate getDate() {
+        return LocalDate.now();
     }
 
     @PostMapping(path = "/add_request")

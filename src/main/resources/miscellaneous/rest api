@@ -1,0 +1,7 @@
+http://localhost:8080/all_requests
+http://localhost:8080/search/{id}
+http://localhost:8080/delete/{id}
+http://localhost:8080/current_date
+http://localhost:8080/add_request
+
+http://localhost:8080/h2-console

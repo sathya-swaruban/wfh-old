@@ -1,0 +1,15 @@
+    async function submitRequest() {
+        let formData = new FormData();
+        formData.append("fromDate", fromDate.value);
+        formData.append("toDate", toDate.value);
+        formData.append("fromTime", fromTime.value);
+        formData.append("toTime", toTime.value);
+        await fetch('http://localhost:8080/add_request', {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }).then(result => result.text()).then(text => alert(text));
+    }

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: fixed;
+            padding-left: 60px;
+            padding-right: 60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: lightgrey;
+        }
+        table {
+            padding: 30px;
+            border-spacing: 5px;
+        }
+        label, input, button, h2 {
+            font-family: 'JetBrains Mono', sans-serif;
+        }
+        label, input, button {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <form action="#" th:action="@{/}" th:object="${wfhRequestForm}" method="post">
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <h2>Work From Home</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="fromDateInput">From Date</label></td>
+                <td><label for="toDateInput">To Date</label></td>
+            </tr>
+            <tr>
+                <td><input id="fromDateInput" type="date" th:field="*{fromDate}" /></td>
+                <td><input id="toDateInput" type="date" th:field="*{toDate}" /></td>
+            </tr>
+            <tr>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+            </tr>
+            <tr>
+                <td><label for="fromTimeInput">From Time</label></td>
+                <td><label for="toTimeInput">To Time</label></td>
+            </tr>
+            <tr>
+                <td><input id="fromTimeInput" type="time" th:field="*{fromTime}" value="08:00:00" /></td>
+                <td><input id="toTimeInput" type="time" th:field="*{toTime}" value="17:15:00" /></td>
+            </tr>
+            <tr>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
