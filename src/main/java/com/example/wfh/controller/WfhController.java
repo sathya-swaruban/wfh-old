@@ -23,25 +23,12 @@ public class WfhController {
 
     @GetMapping(path = "/request/{id}")
     public WfhRequest getRequest(@PathVariable Integer id) {
-        WfhRequest wfhRequest = wfhService.get(id);
-        if (wfhRequest == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        return wfhRequest;
+        return wfhService.get(id);
     }
 
     @PostMapping(path = "/add_request")
     @ResponseBody
     public WfhRequest addRequest(@RequestBody @Valid WfhRequest wfhRequest) {
-        // TODO: Implement below logic
-        // initialize start-date, end-date, start-time, end-time
-        // if (start-date == end-date) and (start-time < end-time):
-        //     check if the wfhdb has the start-date
-        //     if (start-date in wfhdb already):
-        //         throw new ResponseStatusException(HttpStatus.CONFLICT);
-        //     else:
-        //         return wfhService.put(wfhRequest);
-        // else:
-        //     throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        // end-if
         return wfhService.put(wfhRequest);
     }
 }
