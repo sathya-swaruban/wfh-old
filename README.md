@@ -1,1 +1,1 @@
-# WFH Request App using React + Spring Boot + MongoDB
+# WFH Request App using Spring Boot
