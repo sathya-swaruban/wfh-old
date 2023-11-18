@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
+
 @Service
 public class WfhService {
 
@@ -23,6 +25,7 @@ public class WfhService {
 
     public WfhRequest put(WfhRequest wfhRequest) {
         // TODO: Implement below logic
+        // deserialize value of type `java.time.LocalDate` from String "yyyy-MM-dd"
         // initialize start-date, end-date, start-time, end-time
         // if (start-date == end-date) and (start-time < end-time):
         //     check if the wfhdb has the start-date
