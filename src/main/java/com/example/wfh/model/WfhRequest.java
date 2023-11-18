@@ -8,6 +8,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 @Data
@@ -23,10 +24,10 @@ public class WfhRequest {
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDate toDate;
 
-    @NotEmpty
-    private String fromTime;
+    @JsonFormat(pattern = "hh:ss", shape = JsonFormat.Shape.STRING)
+    private LocalTime fromTime;
 
-    @NotEmpty
-    private String toTime;
+    @JsonFormat(pattern = "hh:ss", shape = JsonFormat.Shape.STRING)
+    private LocalTime toTime;
 
 }
