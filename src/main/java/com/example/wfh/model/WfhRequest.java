@@ -5,11 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDate;
-import java.time.LocalTime;
-
 
 @Data
 @Table("WFH_REQUEST")
@@ -24,10 +20,10 @@ public class WfhRequest {
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDate toDate;
 
-    @JsonFormat(pattern = "hh:ss", shape = JsonFormat.Shape.STRING)
-    private LocalTime fromTime;
+    @NotEmpty
+    private String fromTime;
 
-    @JsonFormat(pattern = "hh:ss", shape = JsonFormat.Shape.STRING)
-    private LocalTime toTime;
+    @NotEmpty
+    private String toTime;
 
 }

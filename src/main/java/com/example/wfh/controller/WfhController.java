@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 
 @RestController
+@SuppressWarnings(value = "all")
+// Annotation @SuppressWarnings(value = "all") is intentionally used to suppress 'all' warnings in this class
 public class WfhController {
 
     private final WfhService wfhService;
