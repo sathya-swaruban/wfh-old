@@ -25,7 +25,7 @@ public class WfhService {
         // TODO: Implement below logic
         // deserialize value of type `java.time.LocalDate` from String "yyyy-MM-dd"
         // initialize start-date, end-date, start-time, end-time
-        // if (start-date == end-date) and (start-time < end-time):
+        // if (start-date == end-date) and (start-time < end-time) and (end-time < LocalDateTime.now()):
         //     check if the wfhdb has the start-date
         //     if (start-date in wfhdb already):
         //         throw new ResponseStatusException(HttpStatus.CONFLICT);

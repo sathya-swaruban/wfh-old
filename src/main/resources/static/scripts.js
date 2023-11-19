@@ -8,10 +8,8 @@ async function initialize() {
 
 async function submitRequest() {
     let request = {
-        "fromDate": fromDate.value,
-        "toDate": toDate.value,
-        "fromTime": fromTime.value,
-        "toTime": toTime.value
+        "fromDateTime": fromDate.value + " " + fromTime.value,
+        "toDateTime": toDate.value + " " + toTime.value,
     };
     await fetch('http://localhost:8080/add_request', {
         method: "POST",
