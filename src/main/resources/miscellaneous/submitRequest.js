@@ -1,4 +1,4 @@
-(async function createRequest() {
+(async function submitRequest() {
     let request = {
         "fromDate": "17-Nov-2023",
         "toDate": "17-Nov-2023",
